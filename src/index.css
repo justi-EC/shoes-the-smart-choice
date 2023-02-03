@@ -1,0 +1,13 @@
+@font-face {
+	font-family: NotoSansKR-Regular;
+	src: url(./assets/fonts/NotoSansKR-Regular.otf);
+}
+
+@font-face {
+	font-family: AlfaSlabOne-Regular;
+	src: url(./fonts/AlfaSlabOne-Regular.woff);
+}
+
+:root {
+	--font-NotoSansKR-Regular: NotoSansKR-Regular;
+}
