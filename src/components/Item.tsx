@@ -23,25 +23,25 @@ const Item = ({ product }: Props) => {
 
 export default Item;
 
-export const ItemImg = styled.img`
-	width: 13rem;
+const ItemImg = styled.img`
+	width: 85%;
 	height: 14rem;
 	object-fit: contain;
-	margin: 10px;
+	margin-left: 1rem;
 `;
 
 const ItemWrapper = styled.div`
 	position: relative;
 	width: 70%;
 	margin: 16px auto;
-	padding: 0.7rem 0;
-	transition: 0.1s ease;
+	padding: 0.7rem;
+	transition: 0.4s ease;
 	cursor: pointer;
-	border-radius: 10px;
-	box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, 0.2);
+	box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+		rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
 
 	&:hover {
-		transform: translateY(-3px);
+		transform: translateY(-15px);
 	}
 
 	div {

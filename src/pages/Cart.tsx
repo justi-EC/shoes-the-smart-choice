@@ -110,19 +110,20 @@ const CartContainer = styled.div`
 `;
 
 const CartStyle = styled.table`
-	width: 100%;
+	width: 81%;
 	height: 100%;
 	margin: 1rem auto;
+	margin-top: 3rem;
 	border-collapse: collapse;
 
 	thead tr th {
 		padding: 8px 10px;
-		background-color: #f4f4f4;
-		border-bottom: 1px solid black;
+		border-bottom: 2px solid lightgray;
 	}
 
 	tbody tr td {
 		padding: 8px 10px;
+		text-align: center;
 	}
 `;
 
@@ -134,11 +135,12 @@ const CartPrice = styled.div`
 	height: 64px;
 	margin: 5%;
 	padding: 0 32px;
-	background-color: #f4f4f4;
+	background-color: transparent;
 	border: 1px solid black;
 
 	> span {
 		font-size: 14px;
+		font-weight: bold;
 	}
 
 	> p {
@@ -150,9 +152,9 @@ const CartPrice = styled.div`
 export const BtnStyle = styled.button`
 	margin: 5%;
 	padding: 12px 40px;
-	background-color: #3d3d3d;
+	background-color: #000000;
 	color: #fff;
-	font-size: 14px;
+	font-size: 15px;
 	border: none;
 	cursor: pointer;
 	border-radius: 6px;

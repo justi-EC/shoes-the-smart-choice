@@ -9,11 +9,26 @@ import Login from './pages/Login';
 import NotFound from './pages/NotFound';
 
 import WelcomePage from './pages/WelcomePage';
+import ScrollToTop from './shares/ScrollToTop';
+import { DispatchType } from './store/store';
+import { useDispatch } from 'react-redux';
+import { getAllProductApi } from './store/productSlice';
+import { useEffect } from 'react';
 
 function App() {
+	const dispatch: DispatchType = useDispatch();
+	const getAllProductByApi = () => {
+		dispatch(getAllProductApi());
+	};
+
+	useEffect(() => {
+		getAllProductByApi();
+	}, []);
+
 	return (
 		<div>
 			<BrowserRouter>
+				<ScrollToTop />
 				<Header />
 				<Routes>
 					<Route path="/" element={<WelcomePage />} />

@@ -8,15 +8,29 @@ import { BtnStyle } from './Cart';
 import { RootState } from '../store/store';
 import { ProductModel } from '../shares/Type';
 import { getKrPrice } from '../shares/utils';
+import { useState } from 'react';
 
 const ItemDetail = () => {
 	const dispatch = useDispatch();
 	const { arrProduct } = useSelector((state: RootState) => state.product);
 	let { id } = useParams();
+	const [count, setCount] = useState(1);
 
 	const findItem = arrProduct.find((item: ProductModel) => {
 		return item.id === Number(id);
 	}) as ProductModel;
+
+	const itemCountIncrease = (e: React.MouseEvent<HTMLButtonElement>) => {
+		e.preventDefault();
+		setCount((prev) => prev + 1);
+	};
+
+	const itemCountDecrease = (e: React.MouseEvent<HTMLButtonElement>) => {
+		e.preventDefault();
+		if (count > 1) {
+			setCount((prev) => prev - 1);
+		}
+	};
 
 	return (
 		<DetailWrapper>
@@ -32,13 +46,13 @@ const ItemDetail = () => {
 					<span>{getKrPrice(findItem.price!)}원</span>
 				</div>
 				<div>
-					<button>-</button>
-					<span>1</span>
-					<button>+</button> {/* TODO */}
+					<button onClick={itemCountDecrease}>-</button>
+					<span>{count}</span>
+					<button onClick={itemCountIncrease}>+</button>
 				</div>
 			</DetailItemBox>
 			<MobileDetailFooter>
-				<span>현재 가격</span>
+				<span>현재 가격 : {getKrPrice(findItem.price! * count)}원</span>
 				<CartBtn
 					onClick={() => {
 						dispatch(
@@ -47,23 +61,20 @@ const ItemDetail = () => {
 								name: findItem.name,
 								price: findItem.price,
 								image: findItem.image,
-								count: 1,
+								count: count,
 							})
 						);
 						Swal.fire({
 							icon: 'success',
 							title: '완료!',
 							text: '장바구니에 상품이 추가되었습니다.',
+							confirmButtonColor: '#000000',
 						});
 					}}
 				>
 					장바구니 담기
 				</CartBtn>
 			</MobileDetailFooter>
-			<MenuLine />
-			<ItemDetailContent>
-				<h3>상품 상세정보</h3>
-			</ItemDetailContent>
 		</DetailWrapper>
 	);
 };
@@ -74,16 +85,19 @@ const MobileDetailFooter = styled.nav`
 	position: fixed;
 	z-index: 95;
 	bottom: 0;
-	width: 100%;
+	margin-left: 9rem;
+	width: 80%;
 	height: 5rem;
 	background-color: #fff;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	box-shadow: 1px -2px 4px 2px rgba(0, 0, 0, 0.7);
+	box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+		rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
 
 	span {
 		padding-left: 2rem;
+		font-weight: bold;
 	}
 `;
 
@@ -97,14 +111,17 @@ const CartBtn = styled(BtnStyle)`
 `;
 
 const DetailImg = styled.img`
-	width: 230px;
-	height: 250px;
+	display: flex;
+	justify-content: center;
+	width: 500px;
+	height: 500px;
+	box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+		rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
 	margin: 4rem auto 0;
 	object-fit: contain;
 `;
 
 const DetailItemBox = styled.div`
-	margin-left: 8rem;
 	width: 100%;
 
 	div:nth-child(2) {
@@ -123,14 +140,16 @@ const DetailItemBox = styled.div`
 
 		span,
 		button {
-			background-color: #3d3d3d;
+			font-size: 20px;
+			cursor: pointer;
+			background-color: #000000;
 			padding: 0.3rem 0.6rem;
 			color: #fff;
 		}
 	}
 
 	h3 {
-		font-size: 20px;
+		font-size: 50px;
 	}
 
 	p {
@@ -140,16 +159,6 @@ const DetailItemBox = styled.div`
 
 	span {
 		font-weight: 800;
+		font-size: 30px;
 	}
-`;
-
-const ItemDetailContent = styled.div`
-	width: 80%;
-	height: 80vh;
-	margin: 2rem auto 0;
-	text-align: center;
-`;
-
-const MenuLine = styled(Menu)`
-	margin: 1rem auto 0;
 `;

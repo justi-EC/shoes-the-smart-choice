@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import bannerImg from '../img/main_img.jpg';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper';
+import { Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -11,22 +11,22 @@ import Item from '../components/Item';
 import { ProductModel } from '../shares/Type';
 import { RootState } from '../store/store';
 import { useSelector } from 'react-redux';
+import CollectionList from '../components/CollectionList';
+import LoadingSpinner from '../shares/LoadingSpinner';
 
 interface CustomItemType extends Array<ProductModel> {}
 
 const MainPage = () => {
 	const ref = useRef<HTMLSpanElement>(null);
 	const { arrProduct } = useSelector((state: RootState) => state.product);
+	const isPending = useSelector((state: RootState) => state.product.isPending);
 
 	let todayItem: CustomItemType = [];
-	for (let i = 0; i < 6; i++) {
-		if (i >= 0) {
-			const random = arrProduct[Math.floor(Math.random() * arrProduct.length)];
-			if (todayItem.indexOf(random) === -1) {
-				todayItem.push(random);
-			} else {
-				i--;
-			}
+	for (let i = 0; i < 10; i++) {
+		const random = arrProduct[Math.floor(Math.random() * arrProduct.length)];
+		if (todayItem.indexOf(random) === -1) {
+			todayItem.push(random);
+			i++;
 		}
 	}
 
@@ -46,28 +46,36 @@ const MainPage = () => {
 				<span ref={ref}>추천상품</span>
 				<span>{`>`}</span>
 			</Menu>
-			<GridItem>
-				<Swiper
-					modules={[Navigation, Pagination]}
-					spaceBetween={50}
-					slidesPerView={1}
-					navigation
-					breakpoints={{
-						1024: {
-							slidesPerView: 3,
-							spaceBetween: 30,
-						},
-					}}
-				>
-					{todayItem.map((item: ProductModel) => {
-						return (
-							<SwiperSlide>
-								<Item product={item} />
-							</SwiperSlide>
-						);
-					})}
-				</Swiper>
-			</GridItem>
+			{!isPending && (
+				<GridItem>
+					<Swiper
+						modules={[Navigation]}
+						spaceBetween={30}
+						slidesPerView={1}
+						navigation
+						breakpoints={{
+							768: {
+								slidesPerView: 2,
+								spaceBetween: 20,
+							},
+							1024: {
+								slidesPerView: 3,
+								spaceBetween: 30,
+							},
+						}}
+					>
+						{todayItem.map((item: ProductModel) => {
+							return (
+								<SwiperSlide>
+									<Item product={item} />
+								</SwiperSlide>
+							);
+						})}
+					</Swiper>
+				</GridItem>
+			)}
+			{isPending && <LoadingSpinner />}
+			<CollectionList />
 		</>
 	);
 };
@@ -79,7 +87,7 @@ const Banner = styled.div`
 	flex-direction: column;
 	justify-content: center;
 	align-items: flex-start;
-	width: 100%;
+	width: 80%;
 	height: 60vh;
 	margin: 5rem auto 0;
 	padding-bottom: 16px;
@@ -130,15 +138,24 @@ export const GridItem = styled.div`
 	align-items: center;
 	width: 70%;
 	margin: 0 auto;
-	font-family: 'Poppins', sans-serif;
 
 	.swiper-wrapper,
 	.swiper-slide {
 		width: 400px;
 
+		@media screen and (min-width: 768px) {
+			width: 700px;
+		}
+
 		@media screen and (min-width: 1024px) {
 			width: 1250px;
 		}
+	}
+
+	@media screen and (max-width: 700px) {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
 	}
 `;
 
@@ -155,5 +172,9 @@ export const Menu = styled.div`
 	> span:last-child {
 		position: absolute;
 		right: 0;
+	}
+
+	@media screen and (max-width: 700px) {
+		font-size: 18px;
 	}
 `;

@@ -44,10 +44,11 @@ const HeaderStyle = styled.div`
 	justify-content: space-around;
 	align-items: center;
 	width: 100%;
-	height: 4rem;
+	height: 5rem;
 	padding: 0 1rem;
 	background-color: #fff;
-	box-shadow: 2px 1px 2px 1px rgba(0, 0, 0, 0.2);
+	font-size: 1.2rem;
+	font-weight: bold;
 
 	header {
 		display: flex;

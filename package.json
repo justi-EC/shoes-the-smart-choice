@@ -9,6 +9,7 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
+		"@react-yuki/icons": "^0.0.47",
 		"@reduxjs/toolkit": "^1.9.2",
 		"@styled-icons/boxicons-regular": "^10.47.0",
 		"@styled-icons/ionicons-outline": "^10.46.0",

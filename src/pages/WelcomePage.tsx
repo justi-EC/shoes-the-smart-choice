@@ -1,24 +1,12 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import { DispatchType } from '../store/store';
-import { getAllProductApi } from '../store/productSlice';
-import { motion } from 'framer-motion';
+
 import mainImage from '../img/main.jpg';
 import useMediaQuery from '../hooks/useMediaQuery';
 import { DefaultMotion, DelayMotion } from '../shares/Motion';
 
 const WelcomePage = () => {
-	const dispatch: DispatchType = useDispatch();
 	const navigate = useNavigate();
-	const getAllProductByApi = () => {
-		dispatch(getAllProductApi());
-	};
-
-	useEffect(() => {
-		getAllProductByApi();
-	}, []);
 
 	const isAboveMediumScreens = useMediaQuery('(min-width:1200px)');
 
