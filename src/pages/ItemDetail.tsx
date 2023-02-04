@@ -99,6 +99,9 @@ const MobileDetailFooter = styled.nav`
 		padding-left: 2rem;
 		font-weight: bold;
 	}
+	@media (max-width: 768px) {
+		margin-left: 3.5rem;
+	}
 `;
 
 const DetailWrapper = styled.div`

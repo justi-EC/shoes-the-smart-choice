@@ -30,11 +30,8 @@ const Footer1 = styled.footer`
 	padding: 3px;
 	padding-bottom: 4px;
 	padding-left: 10px;
-	@media (min-width: 640px) {
+	@media (max-width: 768px) {
 		padding-left: 24px;
-	}
-	@media (min-width: 1024px) {
-		padding-left: 48px;
 	}
 
 	&::before {
@@ -49,11 +46,11 @@ const Footer1 = styled.footer`
 	h3 {
 		font-size: 1.5rem;
 		margin-bottom: -1.5rem;
-		font-weight: bold;
+		font-family: var(--font-Lobster);
 	}
 
 	h6 {
 		margin-top: 3rem;
-		font-size: 1rem;
+		font-size: 0.8rem;
 	}
 `;

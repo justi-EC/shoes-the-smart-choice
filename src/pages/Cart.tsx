@@ -145,7 +145,6 @@ const CartPrice = styled.div`
 
 	> p {
 		font-size: 18px;
-		font-weight: bold;
 	}
 `;
 

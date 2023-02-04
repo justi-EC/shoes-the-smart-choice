@@ -15,16 +15,23 @@ interface Right {
 const CollectionContainer = styled.div<Right>`
 	display: flex;
 	margin-bottom: -2rem;
-	height: 24rem;
+	height: 30rem;
 	gap: 2rem;
 	${({ right }) =>
-		right && `flex-direction: row-reverse; align-self: flex-end `}
+		right &&
+		`
+		flex-direction: row-reverse; 
+		align-self: flex-end;
+		`}
 `;
 
 const ImageContainer = styled.div`
 	height: 20rem;
 	width: 12rem;
-	@media (min-width: 640px) {
+	@media (max-width: 768px) {
+		width: 10rem;
+	}
+	@media (min-width: 768px) {
 		width: 16rem;
 	}
 	@media (min-width: 1280px) {
@@ -39,15 +46,26 @@ const InfoContainer = styled.div<Right>`
 	margin-top: 2.5rem
 		${({ right }) =>
 			right
-				? `align-items: flex-end; text-align: right; `
-				: `align-items: flex-start; text-align: left; `};
+				? `
+				align-items: flex-end;
+				 text-align: right; 
+				 `
+				: `
+				align-items: flex-start;
+				text-align: left;
+				  `};
+
+	@media (max-width: 768px) {
+		margin-left: 9rem;
+		margin-right: -1rem;
+	}
 `;
 
 const Title = styled.h2`
 	margin-bottom: -2px;
 	font-size: 50px;
 	font-weight: bold;
-	@media (min-width: 640px) {
+	@media (min-width: 768px) {
 		font-size: 3rem;
 	}
 `;

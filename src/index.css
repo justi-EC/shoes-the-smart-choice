@@ -1,13 +1,8 @@
-@font-face {
-	font-family: NotoSansKR-Regular;
-	src: url(./assets/fonts/NotoSansKR-Regular.otf);
-}
-
-@font-face {
-	font-family: AlfaSlabOne-Regular;
-	src: url(./fonts/AlfaSlabOne-Regular.woff);
-}
-
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,800&display=swap');
 :root {
-	--font-NotoSansKR-Regular: NotoSansKR-Regular;
+	--font-Lobster: 'Lobster';
+	--font-Noto-Sans-KR: 'Noto Sans KR';
+	--font-Montserrat-Italic: 'Montserrat';
 }

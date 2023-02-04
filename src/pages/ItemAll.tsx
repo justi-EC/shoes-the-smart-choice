@@ -46,24 +46,14 @@ export const GridItemAll = styled.div`
 	align-items: center;
 	width: 70%;
 	margin: 0 auto;
-	margin-left: 0;
+	margin-left: 3rem;
 
 	.swiper-wrapper,
 	.swiper-slide {
 		width: 400px;
-
-		@media screen and (min-width: 768px) {
-			width: 700px;
-		}
-
-		@media screen and (min-width: 1024px) {
-			width: 1250px;
-		}
 	}
 
-	@media screen and (max-width: 700px) {
-		width: 100%;
-		display: flex;
-		flex-direction: column;
+	@media (max-width: 768px) {
+		grid-template-columns: 1fr;
 	}
 `;

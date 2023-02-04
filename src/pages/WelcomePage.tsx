@@ -8,8 +8,6 @@ import { DefaultMotion, DelayMotion } from '../shares/Motion';
 const WelcomePage = () => {
 	const navigate = useNavigate();
 
-	const isAboveMediumScreens = useMediaQuery('(min-width:1200px)');
-
 	return (
 		<>
 			<Container>
@@ -17,19 +15,18 @@ const WelcomePage = () => {
 					<p>Shoes,</p>
 					<p>the smart choice.</p>
 				</DelayMotion>
-				{isAboveMediumScreens && (
-					<DefaultMotion>
-						<figure>
-							<img
-								src={mainImage}
-								alt="main"
-								onClick={() => {
-									navigate('/main');
-								}}
-							></img>
-						</figure>
-					</DefaultMotion>
-				)}
+
+				<DefaultMotion>
+					<figure>
+						<img
+							src={mainImage}
+							alt="main"
+							onClick={() => {
+								navigate('/main');
+							}}
+						></img>
+					</figure>
+				</DefaultMotion>
 			</Container>
 		</>
 	);
@@ -41,7 +38,11 @@ const Container = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-top: 4rem;
+
+	@media (max-width: 768px) {
+		display: flex;
+		flex-direction: column;
+	}
 
 	figure img {
 		height: 100%;
@@ -49,7 +50,6 @@ const Container = styled.div`
 		margin: auto;
 		display: block;
 		opacity: 1;
-		border-radius: 50px;
 		cursor: pointer;
 		-webkit-transition: 0.2s ease-in-out;
 		transition: 0.2s ease-in-out;
@@ -62,6 +62,6 @@ const Container = styled.div`
 	p {
 		font-size: 5rem;
 		margin: 5rem;
-		font-family: 'AlfaSlabOne-Regular';
+		font-family: var(--font-Montserrat-Italic);
 	}
 `;

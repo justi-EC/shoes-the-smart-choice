@@ -17,13 +17,8 @@ const Header = () => {
 			<h1 onClick={() => navigate('/')}>Shoes Shop</h1>
 			<header>
 				<HeaderMenu open={isOpen}>
-					<NavLink to="/main">
-						<span>home</span>메인 화면
-					</NavLink>
-					<NavLink to="/itemall">
-						<span>shopping_bag</span>
-						전체 상품
-					</NavLink>
+					<NavLink to="/main">메인 화면</NavLink>
+					<NavLink to="/itemall">전체 상품</NavLink>
 					<NavLink to="/login">
 						<User width={35} height={35} />
 					</NavLink>
@@ -47,8 +42,7 @@ const HeaderStyle = styled.div`
 	height: 5rem;
 	padding: 0 1rem;
 	background-color: #fff;
-	font-size: 1.2rem;
-	font-weight: bold;
+	font-size: 1.5rem;
 
 	header {
 		display: flex;
@@ -58,8 +52,9 @@ const HeaderStyle = styled.div`
 
 	h1 {
 		display: none;
+		font-family: var(--font-Lobster);
 
-		@media screen and (min-width: 700px) {
+		@media screen and (min-width: 768px) {
 			display: block;
 			font-size: 1.5rem;
 			cursor: pointer;
@@ -86,7 +81,7 @@ const HeaderOverlay = styled.div<any>`
 			opacity: 1;
 		`}
 
-	@media screen and (min-width: 700px) {
+	@media screen and (min-width: 768px) {
 		display: none;
 	}
 `;

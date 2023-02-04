@@ -55,9 +55,10 @@ const MainPage = () => {
 						navigation
 						breakpoints={{
 							768: {
-								slidesPerView: 2,
+								slidesPerView: 1,
 								spaceBetween: 20,
 							},
+
 							1024: {
 								slidesPerView: 3,
 								spaceBetween: 30,
@@ -88,17 +89,17 @@ const Banner = styled.div`
 	justify-content: center;
 	align-items: flex-start;
 	width: 80%;
-	height: 60vh;
-	margin: 5rem auto 0;
+	height: 80vh;
+	margin: 5rem auto;
 	padding-bottom: 16px;
 	cursor: pointer;
-	color: #828282;
+	color: #ffffff;
 	font-size: 2.5rem;
 	background-image: url(${bannerImg});
 	background-size: cover;
 	background-repeat: no-repeat;
-	background-position: 50%;
-	font-family: 'AlfaSlabOne-Regular';
+	background-position: 100%;
+	font-family: var(--font-Montserrat-Italic);
 
 	@keyframes fadeInDown {
 		0% {
@@ -112,16 +113,17 @@ const Banner = styled.div`
 	}
 
 	> span:first-child {
-		margin-top: 4rem;
-		margin-left: 10%;
+		margin-top: 30rem;
+
+		margin-left: 2%;
 		animation: fadeInDown 1s;
 	}
 	> span:nth-child(2) {
-		margin-left: 15%;
+		margin-left: 7%;
 		animation: fadeInDown 2s;
 	}
 	> span:nth-child(3) {
-		margin-left: 20%;
+		margin-left: 7%;
 		animation: fadeInDown 3s;
 	}
 	> span:last-child {
@@ -132,27 +134,29 @@ const Banner = styled.div`
 `;
 
 export const GridItem = styled.div`
-	display: grid;
+	display: flex;
 	grid-template-columns: 1fr 1fr 1fr;
 	justify-content: center;
 	align-items: center;
-	width: 70%;
+	width: 100%;
 	margin: 0 auto;
 
 	.swiper-wrapper,
 	.swiper-slide {
 		width: 400px;
 
-		@media screen and (min-width: 768px) {
+		@media (max-width: 768px) {
 			width: 700px;
 		}
-
-		@media screen and (min-width: 1024px) {
+		@media (min-width: 768px) {
+			width: 700px;
+		}
+		@media (min-width: 1024px) {
 			width: 1250px;
 		}
 	}
 
-	@media screen and (max-width: 700px) {
+	@media (max-width: 700px) {
 		width: 100%;
 		display: flex;
 		flex-direction: column;
@@ -163,7 +167,8 @@ export const Menu = styled.div`
 	position: relative;
 	width: 80%;
 	margin: 0 auto;
-	margin-top: 8rem;
+	margin-top: 5rem;
+	margin-bottom: 5rem;
 	padding: 6px 16px;
 	font-size: 24px;
 	border-bottom: 2px solid #3d3d3d;
@@ -174,7 +179,7 @@ export const Menu = styled.div`
 		right: 0;
 	}
 
-	@media screen and (max-width: 700px) {
+	@media (min-width: 768px) {
 		font-size: 18px;
 	}
 `;

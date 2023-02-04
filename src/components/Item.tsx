@@ -25,7 +25,7 @@ export default Item;
 
 const ItemImg = styled.img`
 	width: 85%;
-	height: 14rem;
+	height: 18rem;
 	object-fit: contain;
 	margin-left: 1rem;
 `;

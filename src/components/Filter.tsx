@@ -21,6 +21,9 @@ const Container = styled.div`
 		font-size: 1.5rem;
 		font-weight: bold;
 	}
+	@media (max-width: 768px) {
+		margin-left: 2rem;
+	}
 `;
 
 export const Divider = styled.div`

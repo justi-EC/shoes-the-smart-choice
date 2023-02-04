@@ -5,36 +5,6 @@ import adidasImage from '../img/adidas.jpg';
 import vansImage from '../img/vans.jpg';
 import converseImage from '../img/converse.jpg';
 
-const Container = styled.div`
-	padding: 4rem;
-`;
-
-const FlexContainer = styled.div`
-	display: flex;
-	width: 100%;
-	flex-direction: column;
-	align-items: center;
-	@media (min-width: 768px) {
-		padding-left: 4rem;
-		padding-right: 4rem;
-	}
-	@media (min-width: 1024px) {
-		padding-left: 0px;
-		padding-right: 0px;
-	}
-`;
-
-const CollectionWrapper = styled.div`
-	width: 100%;
-	@media (min-width: 1024px) {
-		width: 40rem;
-	}
-
-	@media (min-width: 1280px) {
-		width: 60rem;
-	}
-`;
-
 const CollectionList = () => {
 	return (
 		<Container>
@@ -64,3 +34,39 @@ const CollectionList = () => {
 };
 
 export default CollectionList;
+
+const Container = styled.div`
+	padding-top: 7rem;
+	padding-bottom: 7rem;
+`;
+
+const FlexContainer = styled.div`
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+	align-items: center;
+	@media (max-width: 768px) {
+		width: 75%;
+	}
+	@media (min-width: 768px) {
+		padding-left: 4rem;
+		padding-right: 4rem;
+	}
+	@media (min-width: 1024px) {
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+`;
+
+const CollectionWrapper = styled.div`
+	width: 100%;
+	@media (max-width: 768px) {
+		width: 20rem;
+	}
+	@media (min-width: 1024px) {
+		width: 40rem;
+	}
+	@media (min-width: 1280px) {
+		width: 50rem;
+	}
+`;
