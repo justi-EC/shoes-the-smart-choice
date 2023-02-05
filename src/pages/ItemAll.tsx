@@ -2,14 +2,41 @@ import { Menu, GridItem } from './MainPage';
 import Item from '../components/Item';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store/store';
-import { ProductModel } from '../shares/Type';
+import { ProductModel } from '../shares/Types';
 import styled from 'styled-components';
 import Filter from '../components/Filter';
 import LoadingSpinner from '../shares/LoadingSpinner';
+import { useEffect, useState } from 'react';
+import { Sort } from '../shares/Enums';
 
 const ItemAll = () => {
-	const { arrProduct } = useSelector((state: RootState) => state.product);
+	const [result, setResult] = useState<ProductModel[]>([]);
 	const isPending = useSelector((state: RootState) => state.product.isPending);
+	const isRendered = useSelector((state: RootState) => state.brand.isRendered);
+	//state
+	const sortType = useSelector((state: RootState) => state.sort.sortType);
+	//sort
+	const { arrProduct } = useSelector((state: RootState) => state.product);
+	const filteredBrand = useSelector(
+		(state: RootState) => state.brand.filteredBrand
+	);
+	//item
+
+	useEffect(() => {
+		if (isRendered) {
+			let sortedResult = filteredBrand;
+			if (sortType === Sort.low) {
+				sortedResult = [...filteredBrand].sort((a, b) => a.price! - b.price!);
+			} else if (sortType === Sort.high) {
+				sortedResult = [...filteredBrand].sort((a, b) => b.price! - a.price!);
+			} else if (sortType === Sort.default) {
+				sortedResult = filteredBrand;
+			}
+			setResult(sortedResult);
+		} else {
+			setResult(arrProduct);
+		}
+	}, [filteredBrand, arrProduct, sortType]);
 
 	return (
 		<>
@@ -21,8 +48,8 @@ const ItemAll = () => {
 				<Filter />
 				{!isPending && (
 					<GridItemAll>
-						{arrProduct.map((item: ProductModel, index: number) => (
-							<Item product={item} />
+						{result.map((item: ProductModel, index: number) => (
+							<Item product={item} key={index} />
 						))}
 					</GridItemAll>
 				)}

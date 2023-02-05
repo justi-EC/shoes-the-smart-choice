@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import FilterOptions from './FilterOptions';
+import FilterBrand from './FilterBrand';
 
 const Filter = () => {
 	return (
@@ -7,6 +8,7 @@ const Filter = () => {
 			<h2>Filter</h2>
 			<Divider />
 			<FilterOptions />
+			<FilterBrand />
 		</Container>
 	);
 };

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { AuthType, AuthTypeDispatch } from '../shares/Type';
+import { AuthType, AuthTypeDispatch } from '../shares/Types';
 
 const initialState: AuthType[] = [];
 

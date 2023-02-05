@@ -1,4 +1,4 @@
-import { ProductModel, ProductModelDispatch } from './../shares/Type';
+import { ProductModel, ProductModelDispatch } from '../shares/Types';
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState: ProductModel[] = [];

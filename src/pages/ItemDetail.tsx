@@ -6,7 +6,7 @@ import { Menu } from './MainPage';
 import { cartActions } from '../store/cartSlice';
 import { BtnStyle } from './Cart';
 import { RootState } from '../store/store';
-import { ProductModel } from '../shares/Type';
+import { ProductModel } from '../shares/Types';
 import { getKrPrice } from '../shares/utils';
 import { useState } from 'react';
 

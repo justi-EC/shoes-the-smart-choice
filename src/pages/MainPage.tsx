@@ -8,7 +8,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import { useRef } from 'react';
 import Item from '../components/Item';
-import { ProductModel } from '../shares/Type';
+import { ProductModel } from '../shares/Types';
 import { RootState } from '../store/store';
 import { useSelector } from 'react-redux';
 import CollectionList from '../components/CollectionList';
@@ -29,6 +29,8 @@ const MainPage = () => {
 			i++;
 		}
 	}
+
+	console.log(arrProduct);
 
 	const scrollToElement = () => {
 		ref.current?.scrollIntoView({ behavior: 'smooth' });
@@ -65,10 +67,10 @@ const MainPage = () => {
 							},
 						}}
 					>
-						{todayItem.map((item: ProductModel) => {
+						{todayItem.map((item: ProductModel, index: number) => {
 							return (
 								<SwiperSlide>
-									<Item product={item} />
+									<Item product={item} key={index} />
 								</SwiperSlide>
 							);
 						})}

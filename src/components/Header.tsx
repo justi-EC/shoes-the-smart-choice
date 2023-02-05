@@ -3,10 +3,15 @@ import { Link, useNavigate } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import { Cart } from '@styled-icons/ionicons-outline/Cart';
 import { User } from '@styled-icons/boxicons-regular/User';
+import { useDispatch, useSelector } from 'react-redux';
+import { brandActions } from '../store/brandSlice';
+import { RootState } from '../store/store';
 
 const Header = () => {
 	const navigate = useNavigate();
 	const [isOpen, setIsOpen] = useState(false);
+	const dispatch = useDispatch();
+	const { arrProduct } = useSelector((state: RootState) => state.product);
 
 	function toggleMenuOpen() {
 		setIsOpen(!isOpen);
@@ -18,7 +23,12 @@ const Header = () => {
 			<header>
 				<HeaderMenu open={isOpen}>
 					<NavLink to="/main">메인 화면</NavLink>
-					<NavLink to="/itemall">전체 상품</NavLink>
+					<NavLink
+						to="/itemall"
+						onClick={() => dispatch(brandActions.filteredAll(arrProduct))}
+					>
+						전체 상품
+					</NavLink>
 					<NavLink to="/login">
 						<User width={35} height={35} />
 					</NavLink>

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { useNavigate } from 'react-router';
-import { ProductModel } from '../shares/Type';
+import { ProductModel } from '../shares/Types';
 import { getKrPrice } from '../shares/utils';
 
 interface Props {
@@ -31,7 +31,6 @@ const ItemImg = styled.img`
 `;
 
 const ItemWrapper = styled.div`
-	position: relative;
 	width: 70%;
 	margin: 16px auto;
 	padding: 0.7rem;

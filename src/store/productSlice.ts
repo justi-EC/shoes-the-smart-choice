@@ -5,7 +5,7 @@ import {
 	isPending,
 } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { ProductModel } from '../shares/Type';
+import { ProductModel } from '../shares/Types';
 
 export type ProductState = {
 	arrProduct: ProductModel[];
