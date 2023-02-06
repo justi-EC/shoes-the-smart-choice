@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import bannerImg from '../img/main_img.jpg';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper';
+import { Navigation, Pagination } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -11,7 +11,7 @@ import Item from '../components/Item';
 import { ProductModel } from '../shares/Types';
 import { RootState } from '../store/store';
 import { useSelector } from 'react-redux';
-import CollectionList from '../components/CollectionList';
+import CollectionList from '../components/Collection/CollectionList';
 import LoadingSpinner from '../shares/LoadingSpinner';
 
 interface CustomItemType extends Array<ProductModel> {}
@@ -29,8 +29,6 @@ const MainPage = () => {
 			i++;
 		}
 	}
-
-	console.log(arrProduct);
 
 	const scrollToElement = () => {
 		ref.current?.scrollIntoView({ behavior: 'smooth' });
@@ -51,16 +49,15 @@ const MainPage = () => {
 			{!isPending && (
 				<GridItem>
 					<Swiper
-						modules={[Navigation]}
+						modules={[Navigation, Pagination]}
 						spaceBetween={30}
 						slidesPerView={1}
 						navigation
 						breakpoints={{
 							768: {
-								slidesPerView: 1,
+								slidesPerView: 2,
 								spaceBetween: 20,
 							},
-
 							1024: {
 								slidesPerView: 3,
 								spaceBetween: 30,
@@ -140,28 +137,22 @@ export const GridItem = styled.div`
 	grid-template-columns: 1fr 1fr 1fr;
 	justify-content: center;
 	align-items: center;
-	width: 100%;
+	width: 80rem;
 	margin: 0 auto;
 
-	.swiper-wrapper,
-	.swiper-slide {
+	.swiper-wrapper .swiper-slide {
 		width: 400px;
-
-		@media (max-width: 768px) {
+		@media screen and (max-width: 768px) {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+		}
+		@media screen and (min-width: 768px) {
 			width: 700px;
 		}
-		@media (min-width: 768px) {
-			width: 700px;
-		}
-		@media (min-width: 1024px) {
+		@media screen and (min-width: 1024px) {
 			width: 1250px;
 		}
-	}
-
-	@media (max-width: 700px) {
-		width: 100%;
-		display: flex;
-		flex-direction: column;
 	}
 `;
 
@@ -181,7 +172,7 @@ export const Menu = styled.div`
 		right: 0;
 	}
 
-	@media (min-width: 768px) {
+	@media screen and (min-width: 768px) {
 		font-size: 18px;
 	}
 `;
