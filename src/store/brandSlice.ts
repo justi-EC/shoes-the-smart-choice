@@ -1,4 +1,4 @@
-import { ProductModel, ProductModelDispatch } from '../shares/Types';
+import { ProductModel } from '../shares/Types';
 import { createSlice } from '@reduxjs/toolkit';
 
 interface BrandType {
@@ -20,7 +20,7 @@ interface BrandDispatch {
 
 const brandSlice = createSlice({
 	name: 'brand',
-	initialState: initialState,
+	initialState,
 	reducers: {
 		filteredBrand: (state, action: BrandDispatch) => {
 			state.filteredBrand = action.payload.allProducts.filter(

@@ -1,12 +1,3 @@
-export interface AuthType {
-	email: string;
-	password: string;
-}
-
-export interface AuthTypeDispatch {
-	payload: AuthType;
-}
-
 export interface ProductModel {
 	id?: number;
 	name?: string;
@@ -24,6 +15,4 @@ export interface ProductModel {
 	count: number;
 }
 
-export interface ProductModelDispatch {
-	payload: ProductModel;
-}
+export type SelectOptionType = { label: string; value: string };

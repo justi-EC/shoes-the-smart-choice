@@ -31,6 +31,7 @@ const ItemImg = styled.img`
 `;
 
 const ItemWrapper = styled.div`
+	position: relative;
 	width: 70%;
 	margin: 16px auto;
 	padding: 0.7rem;
@@ -50,10 +51,12 @@ const ItemWrapper = styled.div`
 
 	h2 {
 		margin-left: 1rem;
+		margin-right: 1rem;
 	}
 
 	p {
 		margin-left: 1rem;
+		margin-right: 1rem;
 	}
 
 	span {

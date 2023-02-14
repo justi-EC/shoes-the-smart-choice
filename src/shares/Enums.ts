@@ -5,6 +5,7 @@ export enum Sort {
 }
 
 export enum Brand {
+	default = 'default',
 	Nike = 'Nike',
 	Adidas = 'Adidas',
 	Vans = 'Vans',

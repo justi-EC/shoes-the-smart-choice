@@ -1,40 +1,53 @@
-import { ProductModel, ProductModelDispatch } from '../shares/Types';
+import { ProductModel } from '../shares/Types';
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState: ProductModel[] = [];
+interface InitialType {
+	cart: ProductModel[];
+	total: number;
+}
+
+const initialState: InitialType = {
+	cart: [],
+	total: 0,
+};
 
 const cartSlice = createSlice({
 	name: 'cart',
-	initialState: initialState,
+	initialState,
 	reducers: {
-		addItem(state: ProductModel[], action: ProductModelDispatch) {
+		addItem(state, action) {
 			const newItem = action.payload;
-			const checkItem = state.find((item) => item.id === newItem.id);
+			const checkItem = state.cart.find((item) => item.id === newItem.id);
 
 			if (!checkItem) {
-				state.push(action.payload);
+				state.cart.push(action.payload);
+				state.total += newItem.count;
 			} else {
 				checkItem.count++;
+				state.total += newItem.count;
 			}
 		},
 
 		removeItem(state, action) {
-			state.splice(
-				state.findIndex((item) => item.id === action.payload.id),
+			state.cart.splice(
+				state.cart.findIndex((item) => item.id === action.payload.id),
 				1
 			);
 		},
 
 		addCount(state, action) {
-			state[action.payload].count++;
+			state.cart[action.payload].count++;
 		},
 
 		removeCount(state, action) {
-			if (state[action.payload].count > 1) {
-				state[action.payload].count--;
+			if (state.cart[action.payload].count > 1) {
+				state.cart[action.payload].count--;
 			} else {
-				state[action.payload].count = 1;
+				state.cart[action.payload].count = 1;
 			}
+		},
+		resetCount(state) {
+			state.total = 0;
 		},
 	},
 });
