@@ -40,7 +40,6 @@ const MainPage = () => {
         <span>Shoes,</span>
         <span>the</span>
         <span>smart choice.</span>
-        <span> </span>
       </Banner>
       <Menu>
         <span ref={ref}>추천상품</span>
@@ -55,19 +54,23 @@ const MainPage = () => {
             navigation
             breakpoints={{
               768: {
-                slidesPerView: 2,
-                spaceBetween: 20,
+                slidesPerView: 1,
+                spaceBetween: 0,
               },
               1024: {
+                slidesPerView: 2,
+                spaceBetween: 30,
+              },
+              1440: {
                 slidesPerView: 3,
                 spaceBetween: 30,
               },
             }}
           >
-            {todayItem.map((item: ProductModel, index: number) => {
+            {todayItem.map((item: ProductModel) => {
               return (
                 <SwiperSlide>
-                  <Item product={item} key={index} />
+                  <Item product={item} key={item.id} />
                 </SwiperSlide>
               );
             })}
@@ -100,6 +103,10 @@ const Banner = styled.div`
   background-position: 100%;
   font-family: var(--font-Montserrat-Italic);
 
+  @media screen and (max-width: 768px) {
+    background-position: 70%;
+  }
+
   @keyframes fadeInDown {
     0% {
       opacity: 0;
@@ -116,43 +123,52 @@ const Banner = styled.div`
 
     margin-left: 2%;
     animation: fadeInDown 1s;
+
+    @media screen and (max-width: 768px) {
+    margin-left : 60%;
+  }
   }
   > span:nth-child(2) {
     margin-left: 7%;
     animation: fadeInDown 2s;
+    @media screen and (max-width: 768px) {
+    margin-left : 70%;
+  }
   }
   > span:nth-child(3) {
     margin-left: 7%;
     animation: fadeInDown 3s;
+    @media screen and (max-width: 768px) {
+    margin-left : 37%;
   }
-  > span:last-child {
-    font-size: 3rem;
-    margin: 4rem auto 0;
-    cursor: pointer;
   }
+  >
 `;
 
 export const GridItem = styled.div`
   display: flex;
-  grid-template-columns: 1fr 1fr 1fr;
   justify-content: center;
   align-items: center;
-  width: 80rem;
+  width: 80%;
   margin: 0 auto;
 
-  .swiper-wrapper .swiper-slide {
-    width: 400px;
-    @media screen and (min-width: 768px) {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-    }
+  .swiper-wrapper,
+  .swiper-slide {
+    width: 600px;
+
     @media screen and (min-width: 768px) {
       width: 700px;
     }
+
     @media screen and (min-width: 1024px) {
-      width: 1250px;
+      width: 1500px;
     }
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
   }
 `;
 

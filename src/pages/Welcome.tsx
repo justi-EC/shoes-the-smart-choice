@@ -44,7 +44,7 @@ const Container = styled.div`
 
   figure img {
     height: 100%;
-    width: 90%;
+    width: 100%;
     margin: auto;
     display: block;
     opacity: 1;

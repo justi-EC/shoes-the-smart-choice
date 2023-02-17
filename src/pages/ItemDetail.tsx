@@ -102,7 +102,7 @@ const MobileDetailFooter = styled.nav`
   position: fixed;
   z-index: 95;
   bottom: 0;
-  margin-left: 9rem;
+  margin-left: 13rem;
   width: 80%;
   height: 5rem;
   background-color: #fff;
@@ -116,7 +116,7 @@ const MobileDetailFooter = styled.nav`
     padding-left: 2rem;
     font-weight: bold;
   }
-  @media screen and (min-width: 768px) {
+  @media screen and (max-width: 768px) {
     margin-left: 3.5rem;
   }
 `;

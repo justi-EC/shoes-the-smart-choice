@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Footer = () => {
   return (
     <>
-      <Footer1>
+      <FooterWrapper>
         <footer>
           <div>
             <h3>Shoes Shop</h3>
@@ -17,14 +17,14 @@ const Footer = () => {
 
           <h6>Copyright © Shoes Shop All Rights Reserved</h6>
         </footer>
-      </Footer1>
+      </FooterWrapper>
     </>
   );
 };
 
 export default Footer;
 
-const Footer1 = styled.footer`
+const FooterWrapper = styled.footer`
   margin-top: 10px;
   width: 100%;
   padding: 3px;

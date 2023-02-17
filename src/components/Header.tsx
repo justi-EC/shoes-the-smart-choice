@@ -10,16 +10,17 @@ import { cartActions } from '../store/cartSlice';
 import { Home } from '@styled-icons/boxicons-regular';
 import { Grid } from '@styled-icons/bootstrap';
 import { Menu } from '@styled-icons/entypo';
+import MenuNav from './MenuNav';
 
 const Header = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
-  const [mobileIsOpen, setMobileIsOpen] = useState(false);
   const [btnIsHighlighted, setBtnIsHighlighted] = useState(false);
   const dispatch = useDispatch();
   const { arrProduct } = useSelector((state: RootState) => state.product);
   const total = useSelector((state: RootState) => state.cart.total);
   const user = useSelector((state: RootState) => state.auth.user);
+  const [isMenuToggled, setIsMenuToggled] = useState(false);
 
   useEffect(() => {
     if (total === 0) {
@@ -35,6 +36,10 @@ const Header = () => {
       clearTimeout(timer);
     };
   }, [total]);
+
+  const toggleMenu = () => {
+    setIsMenuToggled(!isMenuToggled);
+  };
 
   return (
     <>
@@ -89,9 +94,12 @@ const Header = () => {
           </HeaderMenu>
         </header>
       </HeaderStyle>
-      <MobileMenu onClick={() => setMobileIsOpen(!mobileIsOpen)}>
-        <Menu size={50} />
-      </MobileMenu>
+      {!isMenuToggled && (
+        <MobileMenuBtn onClick={() => setIsMenuToggled(!isMenuToggled)}>
+          <Menu size={50} />
+        </MobileMenuBtn>
+      )}
+      {isMenuToggled && <MenuNav toggle={toggleMenu}>하이</MenuNav>}
     </>
   );
 };
@@ -264,18 +272,21 @@ const HeaderMenu = styled.div<any>`
   }
 `;
 
-const MobileMenu = styled.button`
+const MobileMenuBtn = styled.button`
   position: fixed;
   right: 0;
   top: 0;
   z-index: 999;
-  margin-top: 2rem;
+  margin-top: 1rem;
   margin-right: 2rem;
-  color: white;
-  background-color: black;
+  color: #000000;
+  background-color: #ffffff;
+  border: none;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   border-radius: 50%;
-  padding: 1.1rem;
+  padding: 0.5rem;
   transition: 0.2s;
+
   cursor: pointer;
   &:hover {
     transform: scale(1.1);
@@ -283,6 +294,10 @@ const MobileMenu = styled.button`
   @media screen and (min-width: 768px) {
     display: none;
   }
+`;
+
+const MobileMenu = styled.div`
+  border: 2px solid black;
 `;
 
 const NavLink = styled(Link)`

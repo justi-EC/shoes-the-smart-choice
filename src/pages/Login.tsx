@@ -81,7 +81,7 @@ interface ValidType {
 }
 
 const FormDiv = styled.div`
-  width: 30%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -89,8 +89,8 @@ const FormDiv = styled.div`
   margin: 0 auto;
   min-height: calc(100vh - 12rem);
 
-  @media screen and (min-width: 768px) {
-    width: 75%;
+  @media screen and (max-width: 768px) {
+    width: 100%;
   }
 `;
 
@@ -108,7 +108,7 @@ const FormStyle = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 30%;
+  width: 40%;
   margin: 0 auto;
   padding: 18px 10px;
 

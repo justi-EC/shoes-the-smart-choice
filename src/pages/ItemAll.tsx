@@ -65,6 +65,11 @@ const Container = styled.div`
   display: flex;
   margin-top: 4rem;
   margin-left: 13rem;
+
+  @media screen and (max-width: 768px) {
+    margin: auto;
+    margin-left: 1rem;
+  }
 `;
 
 export const GridItemAll = styled.div`
@@ -78,10 +83,11 @@ export const GridItemAll = styled.div`
 
   .swiper-wrapper,
   .swiper-slide {
-    width: 400px;
+    width: 500px;
   }
 
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
+    width: 700px;
   }
 `;
