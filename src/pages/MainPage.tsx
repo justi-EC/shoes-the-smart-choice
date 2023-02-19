@@ -96,12 +96,12 @@ const Banner = styled.div`
   padding-bottom: 16px;
   cursor: pointer;
   color: #ffffff;
-  font-size: 2.5rem;
+  font-size: 2rem;
   background-image: url(${bannerImg});
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 100%;
-  font-family: var(--font-Montserrat-Italic);
+  font-family: 'Montserrat', sans-serif;
 
   @media screen and (max-width: 768px) {
     background-position: 70%;

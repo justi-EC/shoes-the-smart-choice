@@ -5,7 +5,7 @@ import FilterBrand from './FilterBrand';
 const Filter = () => {
   return (
     <Container>
-      <h2>Filter</h2>
+      <h1>Filter</h1>
       <Divider />
       <FilterOptions />
       <FilterBrand />
@@ -18,7 +18,7 @@ export default Filter;
 const Container = styled.div`
   width: 15rem;
 
-  h2 {
+  h1 {
     font-size: 1.5rem;
     font-weight: bold;
   }

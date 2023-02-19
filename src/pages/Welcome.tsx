@@ -10,8 +10,8 @@ const WelcomePage = () => {
     <>
       <Container>
         <DelayMotion>
-          <p>Shoes,</p>
-          <p>the smart choice.</p>
+          <h1>Shoes,</h1>
+          <h1>the smart choice.</h1>
         </DelayMotion>
 
         <DefaultMotion>
@@ -38,7 +38,6 @@ const Container = styled.div`
   align-items: center;
 
   @media screen and (max-width: 768px) {
-    display: flex;
     flex-direction: column;
   }
 
@@ -57,9 +56,8 @@ const Container = styled.div`
     opacity: 0.6;
   }
 
-  p {
+  h1 {
     font-size: 5rem;
     margin: 5rem;
-    font-family: var(--font-Montserrat-Italic);
   }
 `;

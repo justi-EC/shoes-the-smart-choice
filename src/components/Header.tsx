@@ -50,7 +50,7 @@ const Header = () => {
             setIsOpen(!isOpen);
           }}
         />
-        <h1 onClick={() => navigate('/')}>Shoes Shop</h1>
+        <h2 onClick={() => navigate('/')}>Shoes Shop</h2>
         <header>
           <HeaderMenu open={isOpen}>
             <NavLink to="/main">
@@ -99,7 +99,7 @@ const Header = () => {
           <Menu size={50} />
         </MobileMenuBtn>
       )}
-      {isMenuToggled && <MenuNav toggle={toggleMenu}>하이</MenuNav>}
+      {isMenuToggled && <MenuNav toggle={toggleMenu} />}
     </>
   );
 };
@@ -114,6 +114,7 @@ interface Total {
 }
 
 const Badge = styled.div<Total>`
+  display: flex;
   position: relative;
   bottom: 20px;
   right: 36px;
@@ -122,7 +123,8 @@ const Badge = styled.div<Total>`
   color: white;
   width: 30px;
   height: 30px;
-  text-align: center;
+  justify-content: center;
+  align-items: center;
   border-radius: 50%;
 
   ${({ total }) =>
@@ -136,9 +138,6 @@ const Badge = styled.div<Total>`
 `;
 
 const Button = styled.button<BumpProps>`
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
   ${({ btnIsHighlighted }) =>
     btnIsHighlighted
       ? `
@@ -192,9 +191,9 @@ const HeaderStyle = styled.div`
     align-items: center;
   }
 
-  h1 {
+  h2 {
+    font-weight: bold;
     display: none;
-    font-family: var(--font-Lobster);
 
     @media screen and (min-width: 768px) {
       display: block;
@@ -204,7 +203,7 @@ const HeaderStyle = styled.div`
   }
 `;
 
-const HeaderOverlay = styled.div<any>`
+const HeaderOverlay = styled.div<{ open: boolean }>`
   position: fixed;
   z-index: 98;
   top: 0;
@@ -216,8 +215,8 @@ const HeaderOverlay = styled.div<any>`
   opacity: 0;
   transition: 0.3s;
 
-  ${(props: any) =>
-    props.open &&
+  ${({ open }) =>
+    open &&
     css`
       visibility: visible;
       opacity: 1;
@@ -228,7 +227,7 @@ const HeaderOverlay = styled.div<any>`
   }
 `;
 
-const HeaderMenu = styled.div<any>`
+const HeaderMenu = styled.div<{ open: boolean }>`
   position: fixed;
   z-index: 99;
   top: 0;
@@ -246,12 +245,13 @@ const HeaderMenu = styled.div<any>`
   transition: 0.3s;
 
   div {
+    font-weight: bold;
     margin-left: 10px;
     font-size: 20px;
   }
 
-  ${(props) =>
-    props.open &&
+  ${({ open }) =>
+    open &&
     css`
       translate: 0 0;
       visibility: visible;
@@ -279,15 +279,11 @@ const MobileMenuBtn = styled.button`
   z-index: 999;
   margin-top: 1rem;
   margin-right: 2rem;
-  color: #000000;
-  background-color: #ffffff;
-  border: none;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   border-radius: 50%;
   padding: 0.5rem;
   transition: 0.2s;
 
-  cursor: pointer;
   &:hover {
     transform: scale(1.1);
   }
@@ -296,15 +292,10 @@ const MobileMenuBtn = styled.button`
   }
 `;
 
-const MobileMenu = styled.div`
-  border: 2px solid black;
-`;
-
 const NavLink = styled(Link)`
   margin-top: 2rem;
   margin-left: 1rem;
   color: black;
-  text-decoration: none;
   display: flex;
   align-items: center;
 

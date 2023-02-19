@@ -143,14 +143,11 @@ const FormStyle = styled.form`
     background-color: #3d3d3d;
     color: #fff;
     font-size: 16px;
-    border: none;
     border-radius: 6px;
-    cursor: pointer;
     transition: 0.2s;
     &:hover {
       background-color: black;
     }
-    font-family: var(--font-Noto-Sans-KR);
   }
 
   span {
@@ -163,9 +160,7 @@ const LoginInput = styled.input<ValidType>`
   margin: 1rem;
   padding: 0.5rem;
   font-size: 16px;
-  border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-  outline: none;
   &:focus {
     border-bottom: 2px solid #3d3d3d;
   }

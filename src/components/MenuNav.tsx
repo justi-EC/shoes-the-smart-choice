@@ -10,7 +10,6 @@ import { RootState } from '../store/store';
 import { Cart } from '@styled-icons/ionicons-outline/Cart';
 interface Props {
   toggle: () => void;
-  children: React.ReactNode;
 }
 
 const MenuNav = ({ toggle }: Props) => {
@@ -38,7 +37,7 @@ const MenuNav = ({ toggle }: Props) => {
         }}
       >
         <span>
-          <Home size={80} />
+          <Home size={60} />
         </span>
         <span>메인화면</span>
       </div>
@@ -51,7 +50,7 @@ const MenuNav = ({ toggle }: Props) => {
         }}
       >
         <span>
-          <Grid size={80} />
+          <Grid size={60} />
         </span>
         <span>전체 상품</span>
       </div>
@@ -65,7 +64,7 @@ const MenuNav = ({ toggle }: Props) => {
         }}
       >
         <span>
-          <User size={80} />
+          <User size={60} />
         </span>
         <span>{user ? `회원 정보` : `로그인`}</span>
       </div>
@@ -74,17 +73,17 @@ const MenuNav = ({ toggle }: Props) => {
           handleNavigation('/cart');
         }}
       >
-        <span>{user && <Cart size={80} />}</span>
+        <span>{user && <Cart size={60} />}</span>
         <span>{user && `장바구니`}</span>
       </div>
       <div>
-        <h1
+        <h2
           onClick={() => {
             handleNavigation('/');
           }}
         >
           Shoes Shop
-        </h1>
+        </h2>
       </div>
     </Nav>
   );
@@ -98,7 +97,7 @@ const Nav = styled.div`
   right: 0;
   bottom: 0;
   height: 100%;
-  width: 300px;
+  width: 250px;
   background-color: #f4f4f4;
   filter: drop-shadow(0 0 25px rgb(0 0 0 / 0.2));
   animation: slide 200ms ease-out forwards;
@@ -117,7 +116,6 @@ const Nav = styled.div`
   div:first-child {
     margin: 2rem;
     cursor: pointer;
-    background-color: transparent;
     border: none;
     opacity: 70%;
     transition-duration: 0.3s;
@@ -136,6 +134,7 @@ const Nav = styled.div`
     padding: 3rem;
     color: black;
     font-size: 20px;
+    font-weight: bold;
     transition: 0.2s;
     cursor: pointer;
     &:hover {
@@ -144,8 +143,9 @@ const Nav = styled.div`
     span:last-child {
       margin-top: 0.6rem;
     }
-    h1 {
-      font-family: var(--font-Lobster);
+    h2 {
+      font-weight: bold;
+      font-size: 2rem;
       text-align: center;
       margin-top: 6rem;
     }

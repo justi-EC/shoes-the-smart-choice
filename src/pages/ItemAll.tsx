@@ -64,7 +64,7 @@ export default ItemAll;
 const Container = styled.div`
   display: flex;
   margin-top: 4rem;
-  margin-left: 13rem;
+  margin-left: 7rem;
 
   @media screen and (max-width: 768px) {
     margin: auto;

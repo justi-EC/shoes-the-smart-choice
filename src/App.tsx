@@ -7,7 +7,6 @@ import ItemAll from './pages/ItemAll';
 import Cart from './pages/Cart';
 import Login from './pages/Login';
 import NotFound from './pages/NotFound';
-import { Menu } from '@styled-icons/entypo';
 import Welcome from './pages/Welcome';
 import ScrollToTop from './shares/ScrollToTop';
 import { DispatchType } from './store/store';

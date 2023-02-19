@@ -23,8 +23,8 @@ const Collection = ({
       </ImageContainer>
     </DefaultMotion>
     <InfoContainer right={right}>
-      <h2>{title}</h2>
-      <h3>{subtitle}</h3>
+      <h1>{title}</h1>
+      <div>{subtitle}</div>
       <button onClick={handleClick}>Explore</button>
     </InfoContainer>
   </CollectionContainer>
@@ -98,7 +98,7 @@ const InfoContainer = styled.div<RightProps>`
     margin-right: -1rem;
   }
 
-  h2 {
+  h1 {
     margin-bottom: -2px;
     font-size: 50px;
     font-weight: bold;
@@ -107,14 +107,15 @@ const InfoContainer = styled.div<RightProps>`
     }
   }
 
-  h3 {
-    font-size: 20px;
+  div {
+    margin: 0.5rem;
+    font-weight: bold;
+    font-size: 1.4rem;
   }
 
   button {
     background-color: black;
     color: white;
-    cursor: pointer;
     width: 8rem;
     text-align: center;
     font-size: 25px;

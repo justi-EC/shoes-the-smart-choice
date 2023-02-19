@@ -43,7 +43,7 @@ const ItemDetail = () => {
       <DetailItemBox>
         <DetailImg src={findItem.image} />
         <div>
-          <h3>{findItem.name}</h3>
+          <h1>{findItem.name}</h1>
           <p>{findItem.description}</p>
           <span>{getKrPrice(findItem.price!)}원</span>
         </div>
@@ -169,7 +169,8 @@ const DetailItemBox = styled.div`
     }
   }
 
-  h3 {
+  h1 {
+    margin: 2rem 0;
     font-size: 50px;
   }
 

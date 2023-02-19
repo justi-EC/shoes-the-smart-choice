@@ -27,7 +27,6 @@ export const Container = styled.div`
   button {
     background-color: black;
     color: white;
-    cursor: pointer;
     margin-left: 9rem;
     width: 14rem;
     border-radius: 50px;
@@ -37,6 +36,5 @@ export const Container = styled.div`
     &:hover {
       transform: scale(1.1);
     }
-    font-family: var(--font-Noto-Sans-KR);
   }
 `;

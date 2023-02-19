@@ -26,7 +26,7 @@ const MyPage = () => {
   console.log(user?.displayName);
   return (
     <Wrapper>
-      <h1>어서오세요 {user?.displayName}님!</h1>
+      <p>어서오세요 {user?.displayName}님!</p>
       <button onClick={handleLogOut}>로그아웃</button>
     </Wrapper>
   );
@@ -37,5 +37,11 @@ export default MyPage;
 const Wrapper = styled(Container)`
   button {
     margin-right: 10rem;
+  }
+
+  p {
+    font-weight: bold;
+    margin: 2rem;
+    font-size: 5rem;
   }
 `;

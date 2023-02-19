@@ -6,8 +6,8 @@ const Footer = () => {
       <FooterWrapper>
         <footer>
           <div>
-            <h3>Shoes Shop</h3>
-            <h3>Fasion Shoes Collection</h3>
+            <h2>Shoes Shop</h2>
+            <h2>Fasion Shoes Collection</h2>
           </div>
 
           <h6>
@@ -25,32 +25,25 @@ const Footer = () => {
 export default Footer;
 
 const FooterWrapper = styled.footer`
-  margin-top: 10px;
   width: 100%;
-  padding: 3px;
-  padding-bottom: 4px;
-  padding-left: 10px;
-  @media screen and (min-width: 768px) {
-    padding-left: 24px;
-  }
+  margin-left: 1rem;
 
   &::before {
     content: '';
     display: block;
-    margin-bottom: 2px;
+    margin-bottom: 1rem;
     height: 1px;
     width: 95%;
     background-color: #e5e5e5;
   }
 
-  h3 {
+  h2 {
     font-size: 1.5rem;
-    margin-bottom: -1.5rem;
-    font-family: var(--font-Lobster);
+    font-weight: bold;
   }
 
   h6 {
-    margin-top: 3rem;
+    margin: 3rem 0;
     font-size: 0.8rem;
   }
 `;

@@ -163,10 +163,7 @@ export const BtnStyle = styled.button`
   background-color: #000000;
   color: #fff;
   font-size: 20px;
-  border: none;
-  cursor: pointer;
   border-radius: 6px;
-  font-family: var(--font-Noto-Sans-KR);
   &:hover {
     background-color: #de3f3f;
   }
@@ -197,8 +194,6 @@ const CountBtn = styled.button`
   background-color: #6c6c6c;
   color: white;
   font-size: 15px;
-  border: none;
-  cursor: pointer;
   &:hover {
     background-color: black;
   }
@@ -218,9 +213,6 @@ const DeleteIcon = styled.button`
   padding: 0.4rem;
   font-size: 20px;
   width: 100px;
-  border: none;
-  cursor: pointer;
-  font-family: var(--font-Noto-Sans-KR);
   &:hover {
     background-color: #de3f3f;
   }
