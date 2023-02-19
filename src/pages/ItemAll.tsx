@@ -88,6 +88,6 @@ export const GridItemAll = styled.div`
 
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
-    width: 700px;
+    width: 800px;
   }
 `;

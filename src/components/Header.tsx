@@ -277,6 +277,7 @@ const MobileMenuBtn = styled.button`
   right: 0;
   top: 0;
   z-index: 999;
+  background-color: white;
   margin-top: 1rem;
   margin-right: 2rem;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
