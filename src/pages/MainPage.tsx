@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import bannerImg from '../img/main_img.jpg';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper';
+import { Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -48,7 +48,7 @@ const MainPage = () => {
       {!isPending && (
         <GridItem>
           <Swiper
-            modules={[Navigation, Pagination]}
+            modules={[Navigation]}
             spaceBetween={30}
             slidesPerView={1}
             navigation
