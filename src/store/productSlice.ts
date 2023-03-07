@@ -2,7 +2,7 @@ import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { ProductModel } from '../shares/Types';
 
-const { VITE_MOVIE_API_KEY } = import.meta.env;
+const { VITE_SHOES_API_KEY } = import.meta.env;
 
 export type ProductState = {
   arrProduct: ProductModel[];
@@ -56,7 +56,7 @@ const productSlice = createSlice({
 export const getAllProductApi = createAsyncThunk(
   'productSlice/getAllProductApi',
   async () => {
-    const API_URL = VITE_MOVIE_API_KEY;
+    const API_URL = VITE_SHOES_API_KEY;
     const res = await axios.get(API_URL);
     return res.data.content;
   },
